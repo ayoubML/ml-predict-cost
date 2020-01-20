@@ -1,3 +1,2 @@
-# Heroku-Demo# ml-predict-default-payment-next-month
-# ml-predict-post
-# ml-predict-post
+# Heroku ml-predict-cost
+# ml-predict-cost
