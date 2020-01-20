@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<script >
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	    document.getElementById("navbar").style.top = "0";
+	  } else {
+	    document.getElementById("navbar").style.top = "-50px";
+	  }
+	} 
+</script>
+  
+</head>
+
+<body>
+ <div class="login" >
+	<h1>default payment next month</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<div >
+    		<input type="text" name="Duration" placeholder="Duration" required="required" />
+	    	<input type="text" name="Credit_amount" placeholder="Credit_amount" required="required" />
+	    	<input type="text" name="Installment_percentage" placeholder="Installment_percentage" required="required" />
+	    	<input type="text" name="Present_residence" placeholder="Present_residence" required="required" />
+	    	<input type="text" name="Age_years" placeholder="Age_years" required="required" />
+	    	<input type="text" name="existing_credits" placeholder="existing_credits" required="required" />
+	    	<input type="text" name="people_maintenance" placeholder="people_maintenance" required="required" />
+	        <input type="text" name="Status_A11" placeholder="Status_A11" required="required" />
+	        <input type="text" name="Status_A12" placeholder="Status_A12" required="required" />
+	        <input type="text" name="Status_A13" placeholder="Status_A13" required="required" />
+	        <input type="text" name="Status_A14" placeholder="Status_A14" required="required" />
+	        <input type="text" name="CredHist_A30" placeholder="CredHist_A30" required="required" />
+	        <input type="text" name="CredHist_A31" placeholder="CredHist_A31" required="required" />
+	        <input type="text" name="CredHist_A32" placeholder="CredHist_A32" required="required" />
+	        <input type="text" name="CredHist_A33" placeholder="CredHist_A33" required="required" />
+	        <input type="text" name="CredHist_A34" placeholder="CredHist_A34" required="required" />
+	        <input type="text" name="Purpose_A40" placeholder="Purpose_A40" required="required" />
+	        <input type="text" name="Purpose_A41" placeholder="Purpose_A41" required="required" />
+	        <input type="text" name="Purpose_A410" placeholder="Purpose_A410" required="required" />
+	        <input type="text" name="Purpose_A42" placeholder="Purpose_A42" required="required" />
+	        <input type="text" name="Purpose_A43" placeholder="Purpose_A43" required="required" />
+	        <input type="text" name="Purpose_A44" placeholder="Purpose_A44" required="required" />
+	        <input type="text" name="Purpose_A45" placeholder="Purpose_A45" required="required" />
+	        <input type="text" name="Purpose_A46" placeholder="Purpose_A46" required="required" />
+	        <input type="text" name="Purpose_A48" placeholder="Purpose_A48" required="required" />
+	        <input type="text" name="Purpose_A49" placeholder="Purpose_A49" required="required" />
+	        <input type="text" name="SaveAccount_A61" placeholder="SaveAccount_A61" required="required" />
+	        <input type="text" name="SaveAccount_A62" placeholder="SaveAccount_A62" required="required" />
+	        <input type="text" name="SaveAccount_A63" placeholder="SaveAccount_A63" required="required" />
+	        <input type="text" name="SaveAccount_A64" placeholder="SaveAccount_A64" required="required" />
+	        <input type="text" name="SaveAccount_A65" placeholder="SaveAccount_A65" required="required" />
+	        <input type="text" name="YOJ_A71" placeholder="YOJ_A71" required="required" />
+	        <input type="text" name="YOJ_A72" placeholder="YOJ_A72" required="required" />
+	        <input type="text" name="YOJ_A73" placeholder="YOJ_A73" required="required" />
+	        <input type="text" name="YOJ_A74" placeholder="YOJ_A74" required="required" />
+	        <input type="text" name="YOJ_A75" placeholder="YOJ_A75" required="required" />
+	        <input type="text" name="Status&Sex_A91" placeholder="Status&Sex_A91" required="required" />
+	        <input type="text" name="Status&Sex_A92" placeholder="Status&Sex_A92" required="required" />
+	        <input type="text" name="Status&Sex_A93" placeholder="Status&Sex_A93" required="required" />
+	        <input type="text" name="Status&Sex_A94" placeholder="Status&Sex_A94" required="required" />
+	        <input type="text" name="DebGuarant_A101" placeholder="DebGuarant_A101" required="required" />
+	        <input type="text" name="DebGuarant_A102" placeholder="DebGuarant_A102" required="required" />
+	        <input type="text" name="DebGuarant_A103" placeholder="DebGuarant_A103" required="required" />
+	        <input type="text" name="Property_A121" placeholder="Property_A121" required="required" />
+	        <input type="text" name="Property_A122" placeholder="Property_A122" required="required" />
+	        <input type="text" name="Property_A123" placeholder="Property_A123" required="required" />
+	        <input type="text" name="Property_A124" placeholder="Property_A124" required="required" />
+	        <input type="text" name="InstallPlan_A141" placeholder="InstallPlan_A141" required="required" />
+	        <input type="text" name="InstallPlan_A142" placeholder="InstallPlan_A142" required="required" />
+	        <input type="text" name="InstallPlan_A143" placeholder="InstallPlan_A143" required="required" />
+	        <input type="text" name="Housing_A151" placeholder="Housing_A151" required="required" />
+	        <input type="text" name="Housing_A152" placeholder="Housing_A152" required="required" />
+	        <input type="text" name="Housing_A153" placeholder="Housing_A153" required="required" />
+	        <input type="text" name="Job_A171" placeholder="Job_A171" required="required" />
+	        <input type="text" name="Job_A172" placeholder="Job_A172" required="required" />
+	        <input type="text" name="Job_A173" placeholder="Job_A173" required="required" />
+	        <input type="text" name="Job_A174" placeholder="Job_A174" required="required" />
+	        <input type="text" name="Tel_None" placeholder="Tel_None" required="required" />
+	        <input type="text" name="Tel_Registred" placeholder="Tel_Registred" required="required" />
+	        <input type="text" name="ForeignWorker_Yes" placeholder="ForeignWorker_Yes" required="required" />
+	        <input type="text" name="ForeignWorker_No" placeholder="ForeignWorker_No" required="required" />
+
+
+
+    	</div>
+    	
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+
+
+</body>
+</html>
